@@ -1,10 +1,9 @@
-import generateForm from './generateForm.js'
+import './generateForm.js'
 import CONFIG from './setting.js'
 
 let canvasCollection = []
 
-generateForm('code-generator')
-
+const download = document.getElementById('download')
 const image = document.getElementById('srcImg')
 const srcCanvas = document.getElementById('srcCanvas')
 const srcContext = srcCanvas.getContext('2d')
