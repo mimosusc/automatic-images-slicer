@@ -3,7 +3,7 @@ import CONFIG from './setting.js'
 
 let canvasCollection = []
 
-const download = document.getElementById('download')
+const downloadButton = document.getElementById('downloadButton')
 const image = document.getElementById('srcImg')
 const srcCanvas = document.getElementById('srcCanvas')
 const srcContext = srcCanvas.getContext('2d')
@@ -344,12 +344,12 @@ fileInput.addEventListener('change', (event) => displayImage(event))
               this.width,this.height,
               0,0,this.width,this.height)
           }
-          outputImage = (targetCanvasId, serialNumber) => {
+          outputImg = (targetCanvasId, serialNumber) => {
             const targetCanvas = document.getElementById(targetCanvasId)
             const base64 = targetCanvas.toDataURL('image/jpeg', 1.0)
             const outputLink = document.getElementById('outputImg')
             outputLink.href = base64
-            outputLink.download = `${sendPrefix.value}${CONFIG.PREFIX_CONNECTION}img${serialNumber}.jpg`
+            outputLink.download = `${prefixInput.value}${CONFIG.PREFIX_CONNECTION}img${serialNumber}.jpg`
             outputLink.click()
           }
         }
@@ -413,7 +413,7 @@ fileInput.addEventListener('change', (event) => displayImage(event))
         })
       })
     }
-    viewSelected.addEventListener('click', () => {
+    viewButton.addEventListener('click', () => {
       coordinatesSorter(canvasCollection, 'y')
       canvasCollection.forEach((element, index) => {
         const selected = document.createElement('canvas')
@@ -425,12 +425,12 @@ fileInput.addEventListener('change', (event) => displayImage(event))
         canvasArea.append(selected)
       })
     })
-    download.addEventListener('click', () => {
+    downloadButton.addEventListener('click', () => {
       coordinatesSorter(canvasCollection, 'y')
       canvasCollection.forEach((element, index) => {
         const selected = document.getElementById(`img-${index}`)
         element.imageCopyer(selected.id)
-        element.outputImage(selected.id, index + 1)
+        element.outputImg(selected.id, index + 1)
       })
     })
     getRectSelection()

@@ -56,20 +56,20 @@ app_ui.newElementAppender(app_ui.elementCreator('input', {
 }))
 // プレフィックスインプット
 app_ui.newElementAppender(app_ui.elementCreator('input', {
-  'id': 'sendPrefix',
+  'id': 'prefixInput',
   'className': 'code-build',
   'type': 'text',
   'placeholder': '画像のprefixを入力',
 }))
 // ビューボタン
 app_ui.newElementAppender(app_ui.elementCreator('button', {
-  'id': 'viewSelected',
+  'id': 'viewButton',
   'className': 'code-build',
   'textContent': 'view',
 }))
 // ダウンロードボタン
 app_ui.newElementAppender(app_ui.elementCreator('button', {
-  'id': 'download',
+  'id': 'downloadButton',
   'className': 'code-build',
   'textContent': 'DL',
 }))
