@@ -12,22 +12,7 @@ class appUI {
     }
     const newElement = document.createElement(tagName)
     Object.keys(compositionObject).forEach((key) => {
-      const splitKeys = key.split('.')
-      if(splitKeys.length > 1) {
-        switch(splitKeys.length) {
-          case 2:
-            newElement[splitKeys[0]][splitKeys[1]] = compositionObject[key]
-            break
-          case 3:
-            newElement[splitKeys[0]][splitKeys[1]][splitKeys[2]] = compositionObject[key]
-            break
-          default:
-            console.error('Maximum number of method chains exceeded.')
-            return
-        }
-      } else {
-        newElement[key] = compositionObject[key]
-      }
+      newElement[key] = compositionObject[key]
     })
     return newElement
   }
@@ -91,15 +76,12 @@ app_ui.newElementAppender(app_ui.elementCreator('canvas', {
   'id': 'srcCanvas',
   'width': 0,
   'height': 0,
-  'style.top': '0px',
-  'style.left': '0px',
+  'style': `top: 0px; left: 0px;`,
 }), 'canvasArea')
 // 編集結果エリア
 app_ui.newElementAppender(app_ui.elementCreator('canvas', {
   'id': 'recCanvas',
   'width': 0,
   'height': 0,
-  'style.position': 'absolute',
-  'style.top': '0px',
-  'style.left': '0px',
+  'style': `position: absolute; top: 0px; left: 0px;`,
 }), 'canvasArea')
